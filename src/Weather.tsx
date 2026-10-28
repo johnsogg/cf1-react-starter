@@ -36,8 +36,12 @@ export const Weather = () => {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
+  // useEffect invokes a function that is used when a component loads, and then
+  // whenever any of its dependencies changes.
   useEffect(() => {
+    // find the currently selected CityLocation object
     const city = cityData.find((c) => c.name === cityName)!
+    // put together the URL for our API call - this just uses query params
     const url =
       'https://api.open-meteo.com/v1/forecast' +
       `?latitude=${city.latitude}&longitude=${city.longitude}` +
@@ -46,7 +50,11 @@ export const Weather = () => {
     // Lets us cancel the request if the user picks another city mid-flight
     const controller = new AbortController()
 
+    // define a local function called load, then immediately call it.
     async function load() {
+      // inside here, we use some of the hooks and the controller that we just
+      // defined to get data from a server. It could be loading, in an error
+      // state, or be complete and have provided data.
       setLoading(true)
       setError(null)
       try {

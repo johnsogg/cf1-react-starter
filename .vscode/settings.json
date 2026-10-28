@@ -1,0 +1,38 @@
+{
+  // Use the project's TypeScript (not VS Code's bundled one)
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+
+  // Format + fix on save (formatting is handled by VS Code's built-in formatter)
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // ESLint (flat config in eslint.config.js)
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  // Language defaults
+  "[typescript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[typescriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[javascript]": { "editor.defaultFormatter": "vscode.typescript-language-features" },
+  "[json]": { "editor.defaultFormatter": "vscode.json-language-features" },
+  "[jsonc]": { "editor.defaultFormatter": "vscode.json-language-features" },
+  "[css]": { "editor.defaultFormatter": "vscode.css-language-features" },
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+
+  // Plain CSS: let VS Code validate it, and make JSX feel like HTML
+  "css.validate": true,
+  "emmet.includeLanguages": { "javascript": "javascriptreact", "typescript": "typescriptreact" },
+
+  // Keep the explorer/search tidy
+  "files.exclude": { "**/.DS_Store": true },
+  "search.exclude": { "**/node_modules": true, "dist": true, "package-lock.json": true }
+}
